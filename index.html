@@ -7,12 +7,14 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <!-- Header Section -->
     <header>
         <h1>Welcome to the <b>SMOOTHIE MACHINE</b></h1>
         <p>Order a Smoothie or Fresh Cold Pressed Juice below:</p>
     </header>
-     <!-- Main order form -->
-     <form id="orderForm">
+    
+    <!-- Main order form -->
+    <form id="orderForm">
         <!-- Beverage Type Selection -->
         <fieldset>
             <legend>Select Beverage Type</legend>
@@ -29,11 +31,11 @@
         <!-- Smoothie Choices -->
         <fieldset id="smoothieSection">
             <legend>Choose Your Smoothie</legend>
-            <label for="smoothieChoice">Choose your smoothie:</label>
-            <select id="smoothieChoice" name="smoothie">
+            <label for="smoothieSelect">Choose your smoothie:</label>
+            <select id="smoothieSelect" name="smoothie">
                 <option value="Green Goddess">Green Goddess – Kale, Spinach, Mango, Pineapple, Coconut Water</option>
                 <option value="Chia Berry">Chia Berry – Organic Acai, Mixed Berries, Chia Seeds</option>
-                <!--  more smoothies -->
+                <!-- more smoothies here -->
             </select>
             
             <p><b>Select Size:</b></p>
@@ -51,27 +53,32 @@
         <!-- Juice Choices -->
         <fieldset id="juiceSection" style="display: none;">
             <legend>Choose Your Juice</legend>
-            <label for="juiceChoice">Choose your juice:</label>
-            <select id="juiceChoice" name="juice">
+            <label for="juiceSelect">Choose your juice:</label>
+            <select id="juiceSelect" name="juice">
                 <option value="Clean Green">Clean Green – Green Apple, Cucumber, Celery, Kale, Lemon, Ginger</option>
                 <option value="Pineapple Bliss">Pineapple Bliss – Pineapple and Apple Blend in Coconut Water</option>
-                <!-- more juices -->
+                <!-- more juices here -->
             </select>
-            
+                <!--Size seletion for Smoothies-->
             <p><b>Select Size:</b></p>
             <label><input type="radio" name="juiceSize" value="Small" checked> Small ($4.50)</label><br>
             <label><input type="radio" name="juiceSize" value="Medium"> Medium ($5.50)</label><br>
             <label><input type="radio" name="juiceSize" value="Large"> Large ($7.00)</label><br>
 
-            <p><b>Add-ons (Extra Charges):</b></p>
+            <p><b>Add-ons (Extra Charges):</b></p><!-- Add-ons for juices -->
             <label><input type="checkbox" name="juiceAddons" value="Lemon"> Add Lemon (+$0.50)</label><br>
             <label><input type="checkbox" name="juiceAddons" value="Ginger"> Add Ginger (+$0.75)</label><br>
             <label><input type="checkbox" name="juiceAddons" value="Mint"> Add Mint (+$0.50)</label><br>
         </fieldset>
 
+        <!-- Submit Order Button -->
         <button type="submit">Place Order</button>
     </form>
+
+    <!-- Order summary output (Will be populated with JS) -->
     <div id="orderSummary"></div>
+
+    <!-- Attribution: Ingredient lists sourced from the menu at my workplace -->
     <script src="js/app.js"></script>
 </body>
 </html>
