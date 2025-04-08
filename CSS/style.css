@@ -17,14 +17,48 @@ p {
     font-size: 18px;
 }
 
+/* Styling for the main form */
 form {
-    margin-top: 20px;
+    background: #ffffff;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
-label, select {
-    margin: 10px;
+/* Fieldset styling for sections */
+fieldset {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
 }
 
+legend {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* Label and input element styling */
+label {
+    font-size: 14px;
+}
+
+select, input[type="radio"], input[type="checkbox"] {
+    margin: 8px;
+}
+input[type="text"], input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+input[type="text"]:focus, input[type="number"]:focus {
+    border-color: #4CAF50; /* Highlight color on focus */
+    outline: none;
+}
 button {
     display: block;
     background-color: #4CAF50;
