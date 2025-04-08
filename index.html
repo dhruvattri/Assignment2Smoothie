@@ -8,22 +8,35 @@
 </head>
 <body>
     <header>
-        <h1>Welcome to the Smoothie Machine</h1>
-    <p>Order a Smoothie or Fresh Cold Pressed Juice below:</p>
+        <h1>Welcome to the <b>SMOOTHIE MACHINE</b></h1>
+        <p>Order a Smoothie or Fresh Cold Pressed Juice below:</p>
     </header>
-    <form id="smoothieForm">
-        <label for="smoothieChoice">Choose your smoothie:</label>
-        <select id="smoothieChoice" name="smoothie">
-            <option value="Green Goddess">Green Goddess</option>
-            <option value="Chia Berry">Chia Berry</option>
-            
-        </select>
-
+     <!-- Main order form -->
+    <form id="orderForm">
+        <!-- Beverage Type Selection -->
+        <fieldset>
+            <legend>Select Beverage Type</legend>
+            <label>
+                <input type="radio" name="beverageType" value="Smoothie" checked>
+                Smoothie
+            </label>
+            <label>
+                <input type="radio" name="beverageType" value="Juice">
+                Fresh Cold Pressed Juice
+            </label>
+        </fieldset>
+        <!-- Smoothie Choices -->
+        <fieldset>
+            <legend>Choose Your Smoothie</legend>
+            <label for="smoothieChoice">Choose your smoothie:</label>
+            <select id="smoothieChoice" name="smoothie">
+                <option value="Green Goddess">Green Goddess</option>
+                <option value="Chia Berry">Chia Berry</option>
+            </select>
+        </fieldset>
         <button type="submit">Order Smoothie</button>
     </form>
-
     <div id="orderSummary"></div>
-
     <script src="js/app.js"></script>
 </body>
 </html>
