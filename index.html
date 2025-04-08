@@ -12,7 +12,7 @@
         <p>Order a Smoothie or Fresh Cold Pressed Juice below:</p>
     </header>
      <!-- Main order form -->
-    <form id="orderForm">
+     <form id="orderForm">
         <!-- Beverage Type Selection -->
         <fieldset>
             <legend>Select Beverage Type</legend>
@@ -25,26 +25,51 @@
                 Fresh Cold Pressed Juice
             </label>
         </fieldset>
+
         <!-- Smoothie Choices -->
         <fieldset id="smoothieSection">
             <legend>Choose Your Smoothie</legend>
             <label for="smoothieChoice">Choose your smoothie:</label>
             <select id="smoothieChoice" name="smoothie">
-                <option value="Green Goddess">Green Goddess</option>
-                <option value="Chia Berry">Chia Berry</option>
+                <option value="Green Goddess">Green Goddess – Kale, Spinach, Mango, Pineapple, Coconut Water</option>
+                <option value="Chia Berry">Chia Berry – Organic Acai, Mixed Berries, Chia Seeds</option>
+                <!--  more smoothies -->
             </select>
+            
+            <p><b>Select Size:</b></p>
+            <label><input type="radio" name="smoothieSize" value="Small" checked> Small ($5.00)</label><br>
+            <label><input type="radio" name="smoothieSize" value="Medium"> Medium ($6.50)</label><br>
+            <label><input type="radio" name="smoothieSize" value="Large"> Large ($8.00)</label><br>
+
+            <p><b>Add-ons (Extra Charges):</b></p>
+            <label><input type="checkbox" name="smoothieAddons" value="Protein"> Add Protein (+$1.50)</label><br>
+            <label><input type="checkbox" name="smoothieAddons" value="Chia Seeds"> Add Chia Seeds (+$0.50)</label><br>
+            <label><input type="checkbox" name="smoothieAddons" value="Spinach"> Add Spinach (+$0.75)</label><br>
+            <label><input type="checkbox" name="smoothieAddons" value="Honey"> Add Honey (+$0.50)</label><br>
         </fieldset>
-        <!-- Juice Choices, hidden -->
+
+        <!-- Juice Choices -->
         <fieldset id="juiceSection" style="display: none;">
             <legend>Choose Your Juice</legend>
             <label for="juiceChoice">Choose your juice:</label>
             <select id="juiceChoice" name="juice">
-                <option value="Clean Green">Clean Green</option>
-                <option value="Pineapple Bliss">Pineapple Bliss</option>
-                <!-- Add more juice -->
+                <option value="Clean Green">Clean Green – Green Apple, Cucumber, Celery, Kale, Lemon, Ginger</option>
+                <option value="Pineapple Bliss">Pineapple Bliss – Pineapple and Apple Blend in Coconut Water</option>
+                <!-- more juices -->
             </select>
+            
+            <p><b>Select Size:</b></p>
+            <label><input type="radio" name="juiceSize" value="Small" checked> Small ($4.50)</label><br>
+            <label><input type="radio" name="juiceSize" value="Medium"> Medium ($5.50)</label><br>
+            <label><input type="radio" name="juiceSize" value="Large"> Large ($7.00)</label><br>
+
+            <p><b>Add-ons (Extra Charges):</b></p>
+            <label><input type="checkbox" name="juiceAddons" value="Lemon"> Add Lemon (+$0.50)</label><br>
+            <label><input type="checkbox" name="juiceAddons" value="Ginger"> Add Ginger (+$0.75)</label><br>
+            <label><input type="checkbox" name="juiceAddons" value="Mint"> Add Mint (+$0.50)</label><br>
         </fieldset>
-        <button type="submit">Order Beverage</button>
+
+        <button type="submit">Place Order</button>
     </form>
     <div id="orderSummary"></div>
     <script src="js/app.js"></script>
