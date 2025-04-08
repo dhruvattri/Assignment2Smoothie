@@ -26,7 +26,7 @@
             </label>
         </fieldset>
         <!-- Smoothie Choices -->
-        <fieldset>
+        <fieldset id="smoothieSection">
             <legend>Choose Your Smoothie</legend>
             <label for="smoothieChoice">Choose your smoothie:</label>
             <select id="smoothieChoice" name="smoothie">
@@ -34,7 +34,17 @@
                 <option value="Chia Berry">Chia Berry</option>
             </select>
         </fieldset>
-        <button type="submit">Order Smoothie</button>
+        <!-- Juice Choices, hidden -->
+        <fieldset id="juiceSection" style="display: none;">
+            <legend>Choose Your Juice</legend>
+            <label for="juiceChoice">Choose your juice:</label>
+            <select id="juiceChoice" name="juice">
+                <option value="Clean Green">Clean Green</option>
+                <option value="Pineapple Bliss">Pineapple Bliss</option>
+                <!-- Add more juice -->
+            </select>
+        </fieldset>
+        <button type="submit">Order Beverage</button>
     </form>
     <div id="orderSummary"></div>
     <script src="js/app.js"></script>
