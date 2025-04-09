@@ -78,3 +78,20 @@ button:hover {
     font-size: 1.2em;
     color: green;
 }
+/* Footer Styling */
+footer {
+    text-align: center; /* Center align the footer content */
+    margin-top: 30px;
+    padding: 10px 0;
+    background-color: #2e8b57; /* Footer background color */
+    color: white; /* White text color in the footer */
+}
+
+footer p {
+    margin: 5px 0; /* Margin between paragraphs */
+}
+
+footer a {
+    color: white; /* White color for links in the footer */
+    text-decoration: none; /* Remove underline from links */
+}

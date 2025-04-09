@@ -32,7 +32,12 @@ class Smoothie {
 
     // Get the smoothie description
     getDescription() {
-        return `Your smoothie, ${this.name}, with ingredients: ${this.ingredients.join(", ")} and size: ${this.size} is ready! Total price: $${this.price.toFixed(2)}`;
+        // Check if ingredients array is not empty
+        if (this.ingredients.length > 0) {
+            return `Your smoothie, ${this.name}, with ingredients: ${this.ingredients.join(", ")} and size: ${this.size} is ready! Total price: $${this.price.toFixed(2)}`;
+        } else {
+            return `Your smoothie, ${this.name}, with no ingredients selected and size: ${this.size} is ready! Total price: $${this.price.toFixed(2)}`;
+        }
     }
 }
 
@@ -65,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // Handle form submission for smoothie orders
-document.getElementById('smoothieForm').addEventListener('submit', function(event) {
+document.getElementById('smoothieForm').addEventListener('submit', function (event) {
     event.preventDefault(); // Prevent the form from submitting in the traditional way
     
     const choice = document.getElementById('smoothieSelect').value; // Corrected form ID here

@@ -5,33 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smoothie Order Form</title>
     <link rel="stylesheet" href="css/style.css">
+    <!-- Linking the CSS file -->
 </head>
 <body>
-    <!-- Header Section -->
+    <!-- Header Section: Welcome message and description -->
     <header>
         <h1>Welcome to the <b>SMOOTHIE MACHINE</b></h1>
         <p>Order a Smoothie or Fresh Cold Pressed Juice below:</p>
     </header>
     
     <!-- Main order form -->
-    <form id="orderForm">
-        <!-- Beverage Type Selection -->
+    <form id="smoothieForm"> <!-- Main form for smoothie or juice selection -->
+        <!-- Beverage Type Selection: Choose between Smoothie and Juice -->
         <fieldset>
             <legend>Select Beverage Type</legend>
             <label>
-                <input type="radio" name="beverageType" value="Smoothie" checked>
-                Smoothie
+                <input type="radio" name="beverageType" value="Smoothie" checked> Smoothie
             </label>
             <label>
-                <input type="radio" name="beverageType" value="Juice">
-                Fresh Cold Pressed Juice
+                <input type="radio" name="beverageType" value="Juice"> Fresh Cold Pressed Juice
             </label>
         </fieldset>
 
-        <!-- Smoothie Choices -->
+        <!-- Smoothie Choices Section -->
         <fieldset id="smoothieSection">
             <legend>Choose Your Smoothie</legend>
             <label for="smoothieSelect">Choose your smoothie:</label>
+            <!-- Dropdown for selecting the smoothie type -->
             <select id="smoothieSelect" name="smoothie">
                 <option value="Green Goddess">Green Goddess – Kale, Spinach, Mango, Pineapple, Coconut Water</option>
                 <option value="Chia Berry">Chia Berry – Organic Acai, Mixed Berries, Chia Seeds</option>
@@ -41,14 +41,16 @@
                 <option value="Banana Berry">Banana Berry – Banana, Strawberry, Honey, Almond Milk</option>
                 <option value="Berry Beautiful">Berry Beautiful – Strawberry, Orange, Apple Cider, Coconut Water</option>
                 <option value="Ava Blast">Ava Blast – Avocado, Banana, Honey, Almond Milk</option>
-                <option value="Tropical Paradise">Tropical Paradise – Pineapple, Mango, Coconut Water</option>      
+                <option value="Tropical Paradise">Tropical Paradise – Pineapple, Mango, Coconut Water</option>
             </select>
             
+            <!-- Size selection for smoothies -->
             <p><b>Select Size:</b></p>
             <label><input type="radio" name="smoothieSize" value="Small" checked> Small ($5.00)</label><br>
             <label><input type="radio" name="smoothieSize" value="Medium"> Medium ($6.50)</label><br>
             <label><input type="radio" name="smoothieSize" value="Large"> Large ($8.00)</label><br>
 
+            <!-- Add-ons (with extra charges) -->
             <p><b>Add-ons (Extra Charges):</b></p>
             <label><input type="checkbox" name="smoothieAddons" value="Protein"> Add Protein (+$1.50)</label><br>
             <label><input type="checkbox" name="smoothieAddons" value="Chia Seeds"> Add Chia Seeds (+$0.50)</label><br>
@@ -56,22 +58,24 @@
             <label><input type="checkbox" name="smoothieAddons" value="Honey"> Add Honey (+$0.50)</label><br>
         </fieldset>
 
-        <!-- Juice Choices -->
+        <!-- Juice Choices Section (hidden by default) -->
         <fieldset id="juiceSection" style="display: none;">
             <legend>Choose Your Juice</legend>
             <label for="juiceSelect">Choose your juice:</label>
+            <!-- Dropdown for selecting juice -->
             <select id="juiceSelect" name="juice">
                 <option value="Clean Green">Clean Green – Green Apple, Cucumber, Celery, Kale, Lemon, Ginger</option>
                 <option value="Pineapple Bliss">Pineapple Bliss – Pineapple and Apple Blend in Coconut Water</option>
-                <!-- more juices here -->
             </select>
-                <!--Size seletion for Smoothies-->
+            
+            <!-- Size selection for juices -->
             <p><b>Select Size:</b></p>
             <label><input type="radio" name="juiceSize" value="Small" checked> Small ($4.50)</label><br>
             <label><input type="radio" name="juiceSize" value="Medium"> Medium ($5.50)</label><br>
             <label><input type="radio" name="juiceSize" value="Large"> Large ($7.00)</label><br>
 
-            <p><b>Add-ons (Extra Charges):</b></p><!-- Add-ons for juices -->
+            <!-- Add-ons for juices -->
+            <p><b>Add-ons (Extra Charges):</b></p>
             <label><input type="checkbox" name="juiceAddons" value="Lemon"> Add Lemon (+$0.50)</label><br>
             <label><input type="checkbox" name="juiceAddons" value="Ginger"> Add Ginger (+$0.75)</label><br>
             <label><input type="checkbox" name="juiceAddons" value="Mint"> Add Mint (+$0.50)</label><br>
@@ -84,7 +88,13 @@
     <!-- Order summary output (Will be populated with JS) -->
     <div id="orderSummary"></div>
 
-    <!-- Attribution: Ingredient lists sourced from the menu at my workplace -->
+    <!-- Footer with additional information -->
+    <footer>
+        <p>Contact Us: <a href="mailto:info@smoothiemachine.com">info@smoothiemachine.com</a></p>
+        <p>Address: 123 Smoothie Lane, Juicy Town, USA</p>
+    </footer>
+
+    <!-- Link to external JavaScript file -->
     <script src="js/app.js"></script>
 </body>
 </html>
