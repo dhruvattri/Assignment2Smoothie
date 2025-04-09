@@ -37,7 +37,7 @@ class Smoothie {
     }
 }
 // Toggle between Smoothie and Juice sections
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const beverageTypeRadios = document.querySelectorAll('input[name="beverageType"]');
     const smoothieSection = document.getElementById('smoothieSection');
     const juiceSection = document.getElementById('juiceSection');
@@ -55,3 +55,12 @@ document.addEventListener('DOMContentLoaded', function() {
             juiceSection.style.display = "block";   // Show juice section
         }
     }
+    // Event listeners for radio buttons
+    beverageTypeRadios.forEach(radio => {
+        radio.addEventListener('change', toggleSections); // Toggle sections on change
+    });
+
+    // Call toggleSections initially based on the default radio button
+    toggleSections();
+
+}   );
