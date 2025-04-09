@@ -1,7 +1,7 @@
 // Smoothie Maker
 // 25W Client-Side JavaScript - 04/08/2025
-// DHRUV DHRUV
-// 200556510
+// DHRUV DHRUV - 200556510
+// Attribution: Base code, UI toggle & form interaction writte by Dhruv and some enhancements inspired by MDN Docs and W3Schools examples.
 
 // Smoothie class with constructor and methods
 class Smoothie {
@@ -32,11 +32,10 @@ class Smoothie {
 
     // Get the smoothie description
     getDescription() {
-        // Check if ingredients array is not empty
         if (this.ingredients.length > 0) {
-            return `Your smoothie, ${this.name}, with ingredients: ${this.ingredients.join(", ")} and size: ${this.size} is ready! Total price: $${this.price.toFixed(2)}`;
+            return `Your smoothie, ${this.name}, with ingredients: ${this.ingredients.join(", ")} and size: ${this.size} is ready! Total price: $${this.price.toFixed(2)}.`;
         } else {
-            return `Your smoothie, ${this.name}, with no ingredients selected and size: ${this.size} is ready! Total price: $${this.price.toFixed(2)}`;
+            return `Your smoothie, ${this.name}, with no extra ingredients and size: ${this.size} is ready! Total price: $${this.price.toFixed(2)}.`;
         }
     }
 }
@@ -47,49 +46,85 @@ document.addEventListener('DOMContentLoaded', function () {
     const smoothieSection = document.getElementById('smoothieSection');
     const juiceSection = document.getElementById('juiceSection');
 
-    // Function to toggle sections based on selected beverage type
     function toggleSections() {
         const selectedValue = document.querySelector('input[name="beverageType"]:checked').value;
-
-        if (selectedValue === "Smoothie") {
-            smoothieSection.style.display = "block";  // Show smoothie section
-            juiceSection.style.display = "none";     // Hide juice section
-        } else {
-            smoothieSection.style.display = "none";  // Hide smoothie section
-            juiceSection.style.display = "block";   // Show juice section
-        }
+        smoothieSection.style.display = selectedValue === "Smoothie" ? "block" : "none";
+        juiceSection.style.display = selectedValue === "Juice" ? "block" : "none";
     }
 
-    // Event listeners for radio buttons
     beverageTypeRadios.forEach(radio => {
-        radio.addEventListener('change', toggleSections); // Toggle sections on change
+        radio.addEventListener('change', toggleSections);
     });
 
-    // Call toggleSections initially based on the default radio button
-    toggleSections();
+    toggleSections(); // Set initial state
 });
 
-// Handle form submission for smoothie orders
+// Handle form submission
 document.getElementById('smoothieForm').addEventListener('submit', function (event) {
-    event.preventDefault(); // Prevent the form from submitting in the traditional way
-    
-    const choice = document.getElementById('smoothieSelect').value; // Corrected form ID here
-    const size = document.querySelector('input[name="smoothieSize"]:checked').value;
+    event.preventDefault();
 
-    let smoothie = new Smoothie(choice, size); // Add size to smoothie object
-    switch (choice) {
-        case 'Green Goddess':
-            smoothie.addIngredients(['Kale', 'Spinach', 'Mango', 'Pineapple', 'Coconut Water']);
-            break;
-        case 'Chia Berry':
-            smoothie.addIngredients(['Organic Acai', 'Mixed Berries', 'Chia Seeds']);
-            break;
-        // Add more smoothies here as needed
-    }
-
-    smoothie.calculatePrice(); // Calculate the price
-
-    // Display the smoothie description and price
+    const selectedBeverage = document.querySelector('input[name="beverageType"]:checked').value;
     const orderSummary = document.getElementById('orderSummary');
-    orderSummary.textContent = smoothie.getDescription(); // Show the smoothie description including price
+
+    if (selectedBeverage === "Smoothie") {
+        const choice = document.getElementById('smoothieSelect').value;
+        const size = document.querySelector('input[name="smoothieSize"]:checked').value;
+        const addonCheckboxes = document.querySelectorAll('input[name="smoothieAddons"]:checked');
+        const addons = Array.from(addonCheckboxes).map(cb => cb.value);
+
+        let smoothie = new Smoothie(choice, size);
+
+        // Default ingredients per smoothie
+        switch (choice) {
+            case 'Green Goddess':
+                smoothie.addIngredients(['Kale', 'Spinach', 'Mango', 'Pineapple', 'Coconut Water', ...addons]);
+                break;
+            case 'Chia Berry':
+                smoothie.addIngredients(['Organic Acai', 'Mixed Berries', 'Chia Seeds', ...addons]);
+                break;
+            case 'Matcha Power':
+                smoothie.addIngredients(['Banana', 'Kale', 'Protein', 'Matcha', 'Almond Milk', ...addons]);
+                break;
+            case 'Mango Madness':
+                smoothie.addIngredients(['Mango', 'Banana', 'Almond Milk', ...addons]);
+                break;
+            case 'Date Dreams':
+                smoothie.addIngredients(['Dates', 'Banana', 'Peanut Butter', 'Almond Milk', ...addons]);
+                break;
+            case 'Banana Berry':
+                smoothie.addIngredients(['Banana', 'Strawberry', 'Honey', 'Almond Milk', ...addons]);
+                break;
+            case 'Berry Beautiful':
+                smoothie.addIngredients(['Strawberry', 'Orange', 'Apple Cider', 'Coconut Water', ...addons]);
+                break;
+            case 'Ava Blast':
+                smoothie.addIngredients(['Avocado', 'Banana', 'Honey', 'Almond Milk', ...addons]);
+                break;
+            case 'Tropical Paradise':
+                smoothie.addIngredients(['Pineapple', 'Mango', 'Coconut Water', ...addons]);
+                break;
+        }
+
+        smoothie.calculatePrice();
+        orderSummary.innerHTML = `
+            <p>${smoothie.getDescription()}</p>
+            <img src="images/${choice.replace(/\s+/g, '-')}.jpg" alt="${choice}" style="max-width: 200px; border-radius: 10px; margin-top: 10px;">
+        `;
+    } else {
+        // Handle Juice Order
+        const choice = document.getElementById('juiceSelect').value;
+        const size = document.querySelector('input[name="juiceSize"]:checked').value;
+        const addons = Array.from(document.querySelectorAll('input[name="juiceAddons"]:checked')).map(cb => cb.value);
+        let basePrice = size === 'Small' ? 4.5 : size === 'Medium' ? 5.5 : 7.0;
+
+        addons.forEach(addon => {
+            if (addon === "Lemon" || addon === "Mint") basePrice += 0.50;
+            if (addon === "Ginger") basePrice += 0.75;
+        });
+
+        orderSummary.innerHTML = `
+            <p>Your juice, ${choice}, size: ${size}, with add-ons: ${addons.join(", ") || "None"} is ready! Total price: $${basePrice.toFixed(2)}.</p>
+            <img src="images/${choice.replace(/\s+/g, '-')}.jpg" alt="${choice}" style="max-width: 200px; border-radius: 10px; margin-top: 10px;">
+        `;
+    }
 });
