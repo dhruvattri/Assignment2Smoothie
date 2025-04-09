@@ -108,7 +108,7 @@ document.getElementById('smoothieForm').addEventListener('submit', function (eve
         smoothie.calculatePrice();
         orderSummary.innerHTML = `
             <p>${smoothie.getDescription()}</p>
-            <img src="images/${choice.replace(/\s+/g, '-')}.jpg" alt="${choice}" style="max-width: 200px; border-radius: 10px; margin-top: 10px;">
+            <img src="images/${choice.replace(/\s+/g, '-')}.png" alt="${choice}" style="max-width: 200px; border-radius: 10px; margin-top: 10px;">
         `;
     } else {
         // Handle Juice Order
@@ -124,7 +124,7 @@ document.getElementById('smoothieForm').addEventListener('submit', function (eve
 
         orderSummary.innerHTML = `
             <p>Your juice, ${choice}, size: ${size}, with add-ons: ${addons.join(", ") || "None"} is ready! Total price: $${basePrice.toFixed(2)}.</p>
-            <img src="images/${choice.replace(/\s+/g, '-')}.jpg" alt="${choice}" style="max-width: 200px; border-radius: 10px; margin-top: 10px;">
+            <img src="images/${choice.replace(/\s+/g, '-')}.png" alt="${choice}" style="max-width: 200px; border-radius: 10px; margin-top: 10px;">
         `;
     }
 });
