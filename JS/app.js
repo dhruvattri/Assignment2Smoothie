@@ -64,3 +64,24 @@ document.addEventListener('DOMContentLoaded', function () {
     toggleSections();
 
 }   );
+// Handle form submission for smoothie orders
+document.getElementById('smoothieForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the form from submitting in the traditional way
+    
+    const choice = document.getElementById('smoothieChoice').value;
+    const size = document.querySelector('input[name="smoothieSize"]:checked').value;
+
+    let smoothie = new Smoothie(choice, size); // Add size to smoothie object
+    switch (choice) {
+        case 'Green Goddess':
+            smoothie.addIngredients(['Kale', 'Spinach', 'Mango', 'Pineapple', 'Coconut Water']);
+            break;
+        case 'Chia Berry':
+            smoothie.addIngredients(['Organic Acai', 'Mixed Berries', 'Chia Seeds']);
+            break;
+    }
+
+    smoothie.calculatePrice(); // Calculate the price
+
+    
+});
