@@ -36,24 +36,22 @@ class Smoothie {
         return `Your smoothie, ${this.name}, with ingredients: ${this.ingredients.join(", ")} and size: ${this.size} is ready! Total price: $${this.price.toFixed(2)}`;
     }
 }
+// Toggle between Smoothie and Juice sections
+document.addEventListener('DOMContentLoaded', function() {
+    const beverageTypeRadios = document.querySelectorAll('input[name="beverageType"]');
+    const smoothieSection = document.getElementById('smoothieSection');
+    const juiceSection = document.getElementById('juiceSection');
 
-document.getElementById('smoothieForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent the form from submitting in the traditional way
-    const choice = document.getElementById('smoothieChoice').value;
-    const size = document.querySelector('input[name="smoothieSize"]:checked').value;
+    // Function to toggle sections based on selected beverage type
+    function toggleSections() {
+        const selectedValue = document.querySelector('input[name="beverageType"]:checked').value;
 
-    let smoothie = new Smoothie(choice, size); // Add size to smoothie object
-    switch (choice) {
-        case 'Green Goddess':
-            smoothie.addIngredients(['Kale', 'Spinach', 'Mango', 'Pineapple', 'Coconut Water']);
-            break;
-        case 'Chia Berry':
-            smoothie.addIngredients(['Organic Acai', 'Mixed Berries', 'Chia Seeds']);
-            break;
+        // If Smoothie is selected, show the smoothie section and hide the juice section
+        if (selectedValue === "Smoothie") {
+            smoothieSection.style.display = "block";  // Show smoothie section
+            juiceSection.style.display = "none";     // Hide juice section
+        } else {
+            smoothieSection.style.display = "none";  // Hide smoothie section
+            juiceSection.style.display = "block";   // Show juice section
+        }
     }
-
-    smoothie.calculatePrice(); // Calculate the price
-
-    const orderSummary = document.getElementById('orderSummary');
-    orderSummary.textContent = smoothie.getDescription(); // Show description with price
-});
